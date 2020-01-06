@@ -1,5 +1,5 @@
 resource "aws_security_group" "web" {
- name = "client-web-sg"
+ name = "abc-web-sg"
  description = "ONLY HTTP CONNECTION INBOUND"
  vpc_id = "${aws_vpc.main.id}"
 
@@ -22,7 +22,7 @@ resource "aws_security_group" "web" {
         cidr_blocks = ["0.0.0.0/0"] 
     }
     tags = {
-        Name = "client-web-sg"
+        Name = "abc-web-sg"
         
 
     }

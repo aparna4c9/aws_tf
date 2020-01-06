@@ -16,16 +16,19 @@ data "aws_ami" "ubuntu" {
 
 resource "aws_instance" "web" {
   ami           = "${data.aws_ami.ubuntu.id}"
-  instance_type = "${var.ec2_size}
+  instance_type = "${var.ec2_size}"
   associate_public_ip_address = true
   subnet_id      = "${aws_subnet.mysubnet.id}"
-  key_name       = "{var.key_name}
+  key_name       = "${var.key_name}"
   vpc_security_group_ids = ["${aws_security_group.web.id}"]
   tags = {
-    Name = "client-web-1"
+    Name = "abc-web-1"
   }
 }
 
 
+output "ec2_public_ip" {
 
+  value = "${aws_instance.web.public_ip}"
+}
 
